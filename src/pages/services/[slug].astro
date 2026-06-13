@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SERVICES, type Service } from "../../data/services";
+
+export function getStaticPaths() {
+  return SERVICES.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props as { service: Service };
+
+const related = SERVICES.filter(s => s.slug !== service.slug && s.featured === service.featured).slice(0, 3);
+---
+<Layout title={`${service.name} — SHIVAAY LOGISTICS`}>
+  <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
+    <nav class="text-sm text-stone mb-6">
+      <a href="/" class="hover:text-iron transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/services" class="hover:text-iron transition-colors">Services</a>
+      <span class="mx-2">›</span>
+      <span class="text-coal">{service.name}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="w-14 h-14 bg-iron/10 rounded-sm flex items-center justify-center mb-6" aria-hidden="true">
+          <span class="text-iron text-2xl font-bold" aria-hidden="true">{service.name.charAt(0)}</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mb-4">{service.name}</h1>
+        <p class="text-lg text-graphite leading-relaxed">{service.description}</p>
+        
+        <div class="mt-8 flex gap-4">
+          <a href="/get-quote" class="bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Get a Quote</a>
+          <a href="/contact" class="border border-iron text-iron px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron hover:text-white transition-colors">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="bg-linen rounded-sm p-6">
+        <h2 class="font-display font-semibold text-coal mb-4">Related Services</h2>
+        <ul class="space-y-3">
+          {related.map((s) => (
+            <li>
+              <a href={`/services/${s.slug}`} class="flex items-center gap-3 text-sm text-graphite hover:text-iron transition-colors">
+                <div class="w-6 h-6 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                  <span class="text-iron text-xs font-bold" aria-hidden="true">{s.name.charAt(0)}</span>
+                </div>
+                {s.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

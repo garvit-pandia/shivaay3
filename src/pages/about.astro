@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MissionCards from "../components/MissionCards.astro";
+import WhyChooseUs from "../components/WhyChooseUs.astro";
+---
+<Layout title="About Us — SHIVAAY LOGISTICS">
+  <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
+    <nav class="text-sm text-stone mb-6">
+      <a href="/" class="hover:text-iron transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-coal">About Us</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <span class="inline-block bg-iron/10 text-iron text-sm font-medium px-4 py-1 rounded-sm tracking-wider uppercase">Our Story</span>
+        <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mt-4">About Shivaay Logistics</h1>
+        <div class="text-graphite mt-4 space-y-4 leading-relaxed">
+          <p>Mandeep Singh founded Shivaay Logistics as a customs brokerage firm in Ludhiana, bringing years of hands-on experience in Indian customs regulations and international trade compliance. What started as a specialized customs clearance service has grown into a full-service logistics facilitation company.</p>
+          <p>Today, Shivaay Logistics serves over 500 clients across India, offering end-to-end logistics solutions including freight forwarding (air, sea, road, rail), warehousing and distribution, project cargo handling, and comprehensive import/export documentation.</p>
+          <p>Based in Ludhiana — the industrial heart of Punjab — we understand the unique challenges faced by manufacturers and traders in the region. Our deep local knowledge combined with global logistics expertise makes us the preferred partner for businesses looking to expand their reach.</p>
+        </div>
+        <a href="/get-quote" class="inline-block mt-6 bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Download Company Profile</a>
+      </div>
+      <div class="bg-linen rounded-sm min-h-[250px] md:min-h-[400px] flex items-center justify-center text-stone" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <MissionCards />
+  <WhyChooseUs />
+
+  <section class="bg-iron py-16 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Ready to work with us?</h2>
+      <p class="text-white/80 mt-3 text-lg">Get in touch for a customized logistics solution.</p>
+      <div class="mt-6 flex gap-4 justify-center">
+        <a href="/get-quote" class="bg-white text-iron px-8 py-3 rounded-sm font-medium hover:bg-linen transition-colors">Get a Quote</a>
+        <a href="/contact" class="border border-white text-white px-8 py-3 rounded-sm font-medium hover:bg-white/10 transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
