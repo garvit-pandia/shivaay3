@@ -7,6 +7,7 @@ import WhyChooseUs from "../components/WhyChooseUs.astro";
 import AboutPreview from "../components/AboutPreview.astro";
 import MissionCards from "../components/MissionCards.astro";
 import CtaStrip from "../components/CtaStrip.astro";
+import ContactForm from "../components/ContactForm.tsx";
 import { SITE } from "../data/site";
 import MapPin from "phosphor-astro/MapPin.astro";
 import Phone from "phosphor-astro/Phone.astro";
@@ -26,25 +27,7 @@ import Clock from "phosphor-astro/Clock.astro";
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <div class="bg-white border border-linen rounded-sm p-6">
         <h3 class="text-xl font-display font-bold text-coal mb-4">Send us a message</h3>
-        <form class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-coal mb-1">Name</label>
-            <input type="text" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="Your name" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-coal mb-1">Email</label>
-            <input type="email" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="your@email.com" />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-coal mb-1">Phone</label>
-            <input type="tel" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="+91 ..." />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-coal mb-1">Message</label>
-            <textarea rows="4" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="How can we help?"></textarea>
-          </div>
-          <button type="submit" class="bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Send Message</button>
-        </form>
+        <ContactForm client:visible />
       </div>
 
       <div>
