@@ -1,0 +1,42 @@
+---
+const cards = [
+  {
+    icon: "T",
+    title: "Mission",
+    text: "To provide reliable, efficient, and compliant customs brokerage and logistics services that empower businesses in Ludhiana and beyond to trade with confidence.",
+  },
+  {
+    icon: "E",
+    title: "Vision",
+    text: "To become India's most trusted logistics partner, known for integrity, innovation, and excellence in supply chain solutions.",
+  },
+  {
+    icon: "S",
+    title: "Commitment",
+    text: "We are committed to delivering exceptional service, ensuring cargo safety, maintaining regulatory compliance, and building lasting relationships with our clients.",
+  },
+];
+---
+
+<section class="bg-linen py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-coal text-center mb-12">
+      Our Purpose
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {cards.map((card) => (
+        <div class="bg-white rounded-sm p-8 text-center">
+          <div class="w-14 h-14 bg-iron/10 rounded-sm flex items-center justify-center mx-auto mb-5">
+            <span class="text-iron font-bold text-xl">{card.icon}</span>
+          </div>
+          <h3 class="text-xl font-display font-semibold text-coal mb-3">
+            {card.title}
+          </h3>
+          <p class="text-sm text-graphite leading-relaxed">
+            {card.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

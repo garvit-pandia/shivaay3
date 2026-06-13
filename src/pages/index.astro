@@ -5,6 +5,13 @@ import StatsBar from "../components/StatsBar.astro";
 import ServicesGrid from "../components/ServicesGrid.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
 import AboutPreview from "../components/AboutPreview.astro";
+import MissionCards from "../components/MissionCards.astro";
+import CtaStrip from "../components/CtaStrip.astro";
+import { SITE } from "../data/site";
+import MapPin from "phosphor-astro/MapPin.astro";
+import Phone from "phosphor-astro/Phone.astro";
+import Envelope from "phosphor-astro/Envelope.astro";
+import Clock from "phosphor-astro/Clock.astro";
 ---
 <Layout title="SHIVAAY LOGISTICS — Customs Broker & Logistics Facilitator">
   <HeroSection />
@@ -12,4 +19,57 @@ import AboutPreview from "../components/AboutPreview.astro";
   <ServicesGrid />
   <WhyChooseUs />
   <AboutPreview />
+  <MissionCards />
+  <CtaStrip />
+
+  <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="bg-white border border-linen rounded-sm p-6">
+        <h3 class="text-xl font-display font-bold text-coal mb-4">Send us a message</h3>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-coal mb-1">Name</label>
+            <input type="text" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-coal mb-1">Email</label>
+            <input type="email" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="your@email.com" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-coal mb-1">Phone</label>
+            <input type="tel" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="+91 ..." />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-coal mb-1">Message</label>
+            <textarea rows="4" class="w-full border border-linen rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-iron transition-colors" placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Send Message</button>
+        </form>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-display font-bold text-coal mb-6">Contact Information</h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <MapPin size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <span class="text-sm text-graphite">{SITE.address}</span>
+          </div>
+          {SITE.phone.map((p) => (
+            <div class="flex items-start gap-3">
+              <Phone size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+              <a href={`tel:${p.replace(/[^+\d]/g, "")}`} class="text-sm text-graphite hover:text-iron transition-colors">{p}</a>
+            </div>
+          ))}
+          <div class="flex items-start gap-3">
+            <Envelope size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <a href={`mailto:${SITE.email}`} class="text-sm text-graphite hover:text-iron transition-colors">{SITE.email}</a>
+          </div>
+          <div class="flex items-start gap-3">
+            <Clock size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <span class="text-sm text-graphite">{SITE.hours}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
