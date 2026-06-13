@@ -1,6 +1,131 @@
 ---
+import { SITE, NAV } from "../data/site";
+
+const topNavLinks = [
+  { label: "Get a Quote", href: "/get-quote" },
+  { label: "Track Order", href: "/track-order" },
+];
 ---
 
 <header>
-  <span>SHIVAAY LOGISTICS</span>
+  <div class="bg-coal text-white text-sm py-1.5">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="tel:+918847467790" class="hover:text-turmeric transition-colors">+91 88474-67790</a>
+        <span class="text-graphite">|</span>
+        <a href="tel:+919316533756" class="hover:text-turmeric transition-colors">+91 93165-33756</a>
+        <span class="text-graphite hidden sm:inline">|</span>
+        <a href="mailto:shivaaylogistics2022@gmail.com" class="hover:text-turmeric transition-colors hidden sm:inline">shivaaylogistics2022@gmail.com</a>
+      </div>
+      <div class="flex items-center gap-4">
+        {topNavLinks.map((link) => (
+          <a href={link.href} class="hover:text-turmeric transition-colors">{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-linen">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <a href="/" class="font-display font-bold text-lg tracking-wider text-coal whitespace-nowrap">
+        {SITE.name}
+      </a>
+
+      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu">
+        <span class="block w-6 h-0.5 bg-coal"></span>
+        <span class="block w-6 h-0.5 bg-coal"></span>
+        <span class="block w-6 h-0.5 bg-coal"></span>
+      </button>
+
+      <ul class="nav-menu hidden md:flex items-center gap-1">
+        {NAV.map((item) => (
+          <li class="relative group">
+            {item.children ? (
+              <>
+                <a
+                  href={item.href}
+                  class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-coal hover:text-iron transition-colors rounded-sm"
+                >
+                  {item.label}
+                  <svg class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-linen rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-4 py-2.5 text-sm text-coal hover:bg-linen hover:text-iron transition-colors first:rounded-t-sm last:rounded-b-sm"
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <a
+                href={item.href}
+                class="block px-3 py-2 text-sm font-medium text-coal hover:text-iron transition-colors rounded-sm"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+        <li>
+          <a href="/get-quote" class="bg-iron text-white px-4 py-2 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors ml-2">
+            Get Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-menu hidden md:hidden border-t border-linen bg-white">
+      <ul class="max-w-7xl mx-auto px-4 py-2 space-y-1">
+        {NAV.map((item) => (
+          <li>
+            {item.children ? (
+              <details class="group">
+                <summary class="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-coal cursor-pointer list-none">
+                  {item.label}
+                  <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="pl-4 pb-1">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-3 py-2 text-sm text-stone hover:text-iron transition-colors"
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <a
+                href={item.href}
+                class="block px-3 py-2.5 text-sm font-medium text-coal hover:text-iron transition-colors"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+        <li class="pt-2">
+          <a href="/get-quote" class="block text-center bg-iron text-white px-4 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">
+            Get Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
+
+<script>
+  document.querySelector('.hamburger')?.addEventListener('click', () => {
+    const menus = document.querySelectorAll('.nav-menu');
+    menus.forEach(menu => menu.classList.toggle('hidden'));
+  });
+</script>

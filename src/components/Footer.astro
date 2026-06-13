@@ -1,6 +1,97 @@
 ---
+import { SITE, NAV } from "../data/site";
+import { SERVICES } from "../data/services";
+import FacebookLogo from "phosphor-astro/FacebookLogo.astro";
+import LinkedinLogo from "phosphor-astro/LinkedinLogo.astro";
+import TwitterLogo from "phosphor-astro/TwitterLogo.astro";
+import MapPin from "phosphor-astro/MapPin.astro";
+import Phone from "phosphor-astro/Phone.astro";
+import Envelope from "phosphor-astro/Envelope.astro";
+import Clock from "phosphor-astro/Clock.astro";
 ---
 
-<footer>
-  <p>&copy; 2026 Shivaay Logistics. All rights reserved.</p>
+<footer class="bg-coal text-white">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
+    <div>
+      <h3 class="font-display font-bold text-lg tracking-wider mb-4">{SITE.name}</h3>
+      <p class="text-stone text-sm leading-relaxed mb-4">
+        Your trusted customs broker & logistics facilitator
+      </p>
+      <div class="flex items-center gap-3">
+        <a href={SITE.social.facebook} class="text-stone hover:text-turmeric transition-colors" aria-label="Facebook">
+          <FacebookLogo size={20} />
+        </a>
+        <a href={SITE.social.linkedin} class="text-stone hover:text-turmeric transition-colors" aria-label="LinkedIn">
+          <LinkedinLogo size={20} />
+        </a>
+        <a href={SITE.social.twitter} class="text-stone hover:text-turmeric transition-colors" aria-label="Twitter">
+          <TwitterLogo size={20} />
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="font-display font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+      <ul class="space-y-2.5">
+        {NAV.map((item) => (
+          <li>
+            <a href={item.href} class="text-stone text-sm hover:text-turmeric transition-colors">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display font-semibold text-sm uppercase tracking-wider mb-4">Our Services</h4>
+      <ul class="space-y-2.5">
+        {SERVICES.slice(0, 6).map((service) => (
+          <li>
+            <a href={`/services/${service.slug}`} class="text-stone text-sm hover:text-turmeric transition-colors">
+              {service.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display font-semibold text-sm uppercase tracking-wider mb-4">Contact</h4>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-2.5">
+          <MapPin size={18} class="mt-0.5 shrink-0 text-turmeric" />
+          <span class="text-stone text-sm">{SITE.address}</span>
+        </li>
+        <li>
+          <a href="tel:+918847467790" class="flex items-center gap-2.5 text-stone text-sm hover:text-turmeric transition-colors">
+            <Phone size={18} class="shrink-0 text-turmeric" />
+            {SITE.phone[0]}
+          </a>
+        </li>
+        <li>
+          <a href="tel:+919316533756" class="flex items-center gap-2.5 text-stone text-sm hover:text-turmeric transition-colors">
+            <Phone size={18} class="shrink-0 text-turmeric" />
+            {SITE.phone[1]}
+          </a>
+        </li>
+        <li>
+          <a href="mailto:shivaaylogistics2022@gmail.com" class="flex items-center gap-2.5 text-stone text-sm hover:text-turmeric transition-colors break-all">
+            <Envelope size={18} class="shrink-0 text-turmeric" />
+            {SITE.email}
+          </a>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <Clock size={18} class="mt-0.5 shrink-0 text-turmeric" />
+          <span class="text-stone text-sm">{SITE.hours}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bg-graphite py-4">
+    <div class="max-w-7xl mx-auto px-4 text-center text-stone text-sm">
+      &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+    </div>
+  </div>
 </footer>
