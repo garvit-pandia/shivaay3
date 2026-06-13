@@ -1,0 +1,42 @@
+---
+import { SERVICES, FEATURED_SERVICES } from "../data/services";
+---
+
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-coal">Our Services</h2>
+    <p class="text-graphite mt-3 max-w-2xl mx-auto">Comprehensive logistics solutions tailored to your needs</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+    {FEATURED_SERVICES.map((service) => (
+      <a
+        href={`/services/${service.slug}`}
+        class="group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
+      >
+        <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4">
+          <span class="text-iron text-xl font-bold">{service.icon.charAt(0)}</span>
+        </div>
+        <h3 class="text-lg font-display font-bold text-coal group-hover:text-iron transition-colors">{service.name}</h3>
+        <p class="text-sm text-graphite mt-1">{service.shortDesc}</p>
+        <span class="text-iron text-sm font-medium mt-3 inline-block group-hover:underline">Learn more →</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {SERVICES.filter(s => !s.featured).map((service) => (
+      <a
+        href={`/services/${service.slug}`}
+        class="group block bg-white border border-linen rounded-sm p-4 hover:border-iron transition-colors"
+      >
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
+            <span class="text-iron text-sm font-bold">{service.icon.charAt(0)}</span>
+          </div>
+          <h3 class="text-sm font-medium text-coal group-hover:text-iron transition-colors">{service.name}</h3>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
