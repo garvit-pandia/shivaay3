@@ -12,5 +12,5 @@
   --font-sans: "Satoshi", system-ui, sans-serif;
   --font-display: "Geist Display", "Satoshi", system-ui, sans-serif;
   
-  --radius-btn: 4px;
+  --radius-btn: 0.25rem;
 }
