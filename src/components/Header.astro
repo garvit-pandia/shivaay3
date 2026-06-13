@@ -25,13 +25,13 @@ const topNavLinks = [
     </div>
   </div>
 
-  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-linen">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-linen" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
       <a href="/" class="font-display font-bold text-lg tracking-wider text-coal whitespace-nowrap">
         {SITE.name}
       </a>
 
-      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu">
+      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="block w-6 h-0.5 bg-coal"></span>
         <span class="block w-6 h-0.5 bg-coal"></span>
         <span class="block w-6 h-0.5 bg-coal"></span>
@@ -51,7 +51,7 @@ const topNavLinks = [
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </a>
-                <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-linen rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-linen rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                   {item.children.map((child) => (
                     <a
                       href={child.href}
@@ -125,7 +125,10 @@ const topNavLinks = [
 
 <script>
   document.querySelector('.hamburger')?.addEventListener('click', () => {
+    const button = document.querySelector('.hamburger');
     const menus = document.querySelectorAll('.nav-menu');
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !isOpen);
     menus.forEach(menu => menu.classList.toggle('hidden'));
   });
 </script>
