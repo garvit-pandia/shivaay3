@@ -2,7 +2,7 @@
 import { SERVICES, FEATURED_SERVICES } from "../data/services";
 ---
 
-<section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-4" aria-label="Our services">
   <div class="text-center mb-12">
     <h2 class="text-3xl md:text-4xl font-display font-bold text-coal">Our Services</h2>
     <p class="text-graphite mt-3 max-w-2xl mx-auto">Comprehensive logistics solutions tailored to your needs</p>
@@ -14,8 +14,8 @@ import { SERVICES, FEATURED_SERVICES } from "../data/services";
         href={`/services/${service.slug}`}
         class="group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
       >
-        <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4">
-          <span class="text-iron text-xl font-bold">{service.icon.charAt(0)}</span>
+        <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4" aria-hidden="true">
+          <span class="text-iron text-xl font-bold">{service.name.charAt(0)}</span>
         </div>
         <h3 class="text-lg font-display font-bold text-coal group-hover:text-iron transition-colors">{service.name}</h3>
         <p class="text-sm text-graphite mt-1">{service.shortDesc}</p>
@@ -31,8 +31,8 @@ import { SERVICES, FEATURED_SERVICES } from "../data/services";
         class="group block bg-white border border-linen rounded-sm p-4 hover:border-iron transition-colors"
       >
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
-            <span class="text-iron text-sm font-bold">{service.icon.charAt(0)}</span>
+          <div class="w-8 h-8 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <span class="text-iron text-sm font-bold">{service.name.charAt(0)}</span>
           </div>
           <h3 class="text-sm font-medium text-coal group-hover:text-iron transition-colors">{service.name}</h3>
         </div>
