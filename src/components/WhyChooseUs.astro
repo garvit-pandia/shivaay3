@@ -1,0 +1,49 @@
+---
+const cards = [
+  {
+    letter: "E",
+    heading: "Expertise & Experience",
+    text: "Years of customs brokerage and logistics expertise across India",
+  },
+  {
+    letter: "T",
+    heading: "Timely & Safe Delivery",
+    text: "On-time delivery with rigorous safety standards for every shipment",
+  },
+  {
+    letter: "C",
+    heading: "Cost Effective Solutions",
+    text: "Competitive pricing without compromising on service quality",
+  },
+  {
+    letter: "C",
+    heading: "Customs Compliance Assurance",
+    text: "Full compliance with customs regulations and trade laws",
+  },
+  {
+    letter: "S",
+    heading: "24/7 Customer Support",
+    text: "Round-the-clock support for your logistics needs",
+  },
+];
+---
+
+<section class="bg-linen py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-coal text-center mb-12">
+      Why Choose Us
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+      {cards.map((card) => (
+        <div class="bg-white rounded-sm p-6 text-center">
+          <div class="w-12 h-12 bg-iron/10 rounded-sm flex items-center justify-center mx-auto mb-4">
+            <span class="text-iron text-xl font-bold">{card.letter}</span>
+          </div>
+          <h3 class="text-lg font-display font-semibold text-coal mb-2">{card.heading}</h3>
+          <p class="text-sm text-graphite leading-relaxed">{card.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
