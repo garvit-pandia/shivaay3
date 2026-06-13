@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-iron: #C7512B;
+  --color-iron-dark: #A33D1E;
+  --color-coal: #1A1A1A;
+  --color-turmeric: #E8A84C;
+  --color-linen: #F5F0EB;
+  --color-stone: #8A7F77;
+  --color-graphite: #4A4A4A;
+  
+  --font-sans: "Satoshi", system-ui, sans-serif;
+  --font-display: "Geist Display", "Satoshi", system-ui, sans-serif;
+  
+  --radius-btn: 4px;
+}
