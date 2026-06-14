@@ -1,6 +1,35 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { SERVICES, type Service } from "../../data/services";
+import Airplane from "phosphor-astro/Airplane.astro";
+import Sailboat from "phosphor-astro/Sailboat.astro";
+import Truck from "phosphor-astro/Truck.astro";
+import Train from "phosphor-astro/Train.astro";
+import ClipboardText from "phosphor-astro/ClipboardText.astro";
+import HouseLine from "phosphor-astro/HouseLine.astro";
+import Crane from "phosphor-astro/Crane.astro";
+import Warehouse from "phosphor-astro/Warehouse.astro";
+import ShieldCheck from "phosphor-astro/ShieldCheck.astro";
+import Package from "phosphor-astro/Package.astro";
+import FileText from "phosphor-astro/FileText.astro";
+import Stack from "phosphor-astro/Stack.astro";
+import ArrowsLeftRight from "phosphor-astro/ArrowsLeftRight.astro";
+
+const iconMap = new Map<string, typeof Airplane>([
+  ["Airplane", Airplane],
+  ["Sailboat", Sailboat],
+  ["Truck", Truck],
+  ["Train", Train],
+  ["ClipboardText", ClipboardText],
+  ["HouseLine", HouseLine],
+  ["Crane", Crane],
+  ["Warehouse", Warehouse],
+  ["ShieldCheck", ShieldCheck],
+  ["Package", Package],
+  ["FileText", FileText],
+  ["Stack", Stack],
+  ["ArrowsLeftRight", ArrowsLeftRight],
+]);
 
 export function getStaticPaths() {
   return SERVICES.map((service) => ({
@@ -13,20 +42,23 @@ const { service } = Astro.props as { service: Service };
 
 const related = SERVICES.filter(s => s.slug !== service.slug).slice(0, 3);
 ---
-<Layout title={`${service.name} — SHIVAAY LOGISTICS`}>
+<Layout title={`${service.name} — SHIVAAY LOGISTICS`} description={service.description.slice(0, 160)}>
   <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
     <nav class="text-sm text-stone mb-6" aria-label="Breadcrumb">
       <a href="/" class="hover:text-iron transition-colors">Home</a>
       <span class="mx-2" aria-hidden="true">›</span>
       <a href="/services" class="hover:text-iron transition-colors">Services</a>
       <span class="mx-2" aria-hidden="true">›</span>
-      <span class="text-coal">{service.name}</span>
+      <span class="text-coal" aria-current="page">{service.name}</span>
     </nav>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <div class="lg:col-span-2">
         <div class="w-14 h-14 bg-iron/10 rounded-sm flex items-center justify-center mb-6" aria-hidden="true">
-          <span class="text-iron text-2xl font-bold" aria-hidden="true">{service.name.charAt(0)}</span>
+          {(() => {
+            const IconComponent = iconMap.get(service.icon);
+            return IconComponent && <IconComponent width={28} height={28} class="text-iron" />;
+          })()}
         </div>
         <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mb-4">{service.name}</h1>
         <p class="text-lg text-graphite leading-relaxed">{service.description}</p>
@@ -40,16 +72,18 @@ const related = SERVICES.filter(s => s.slug !== service.slug).slice(0, 3);
       <div class="bg-linen rounded-sm p-6">
         <h2 class="font-display font-semibold text-coal mb-4">Related Services</h2>
         <ul class="space-y-3">
-          {related.map((s) => (
+          {related.map((s) => {
+            const IconComponent = iconMap.get(s.icon);
+            return (
             <li>
               <a href={`/services/${s.slug}`} class="flex items-center gap-3 text-sm text-graphite hover:text-iron transition-colors">
-                <div class="w-6 h-6 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                  <span class="text-iron text-xs font-bold" aria-hidden="true">{s.name.charAt(0)}</span>
+                <div class="w-6 h-6 bg-iron/10 rounded-sm flex items-center justify-center shrink-0" aria-hidden="true">
+                  {IconComponent && <IconComponent width={12} height={12} class="text-iron" />}
                 </div>
                 {s.name}
               </a>
             </li>
-          ))}
+          )})}
         </ul>
       </div>
     </div>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shivaaylogistics.com/sitemap-index.xml

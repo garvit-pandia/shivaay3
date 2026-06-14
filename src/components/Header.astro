@@ -11,11 +11,11 @@ const topNavLinks = [
   <div class="bg-coal text-white text-sm py-1.5">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <a href="tel:+918847467790" class="hover:text-turmeric transition-colors">+91 88474-67790</a>
+        <a href={`tel:${SITE.phone[0].replace(/[^+\d]/g, "")}`} class="hover:text-turmeric transition-colors">{SITE.phone[0]}</a>
         <span class="text-graphite">|</span>
-        <a href="tel:+919316533756" class="hover:text-turmeric transition-colors">+91 93165-33756</a>
+        <a href={`tel:${SITE.phone[1].replace(/[^+\d]/g, "")}`} class="hover:text-turmeric transition-colors">{SITE.phone[1]}</a>
         <span class="text-graphite hidden sm:inline">|</span>
-        <a href="mailto:shivaaylogistics2022@gmail.com" class="hover:text-turmeric transition-colors hidden sm:inline">shivaaylogistics2022@gmail.com</a>
+        <a href={`mailto:${SITE.email}`} class="hover:text-turmeric transition-colors hidden sm:inline">{SITE.email}</a>
       </div>
       <div class="flex items-center gap-4">
         {topNavLinks.map((link) => (
@@ -44,14 +44,14 @@ const topNavLinks = [
               <>
                 <a
                   href={item.href}
-                  class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-coal hover:text-iron transition-colors rounded-sm"
+                  class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-coal hover:text-iron transition-colors rounded-sm" aria-haspopup="true" aria-expanded="false"
                 >
                   {item.label}
                   <svg class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </a>
-                <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-linen rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
+                <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-linen rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-focus:opacity-100 group-focus:visible transition-all duration-200">
                   {item.children.map((child) => (
                     <a
                       href={child.href}
@@ -127,8 +127,9 @@ const topNavLinks = [
   document.querySelector('.hamburger')?.addEventListener('click', () => {
     const button = document.querySelector('.hamburger');
     const menus = document.querySelectorAll('.nav-menu');
+    if (!button) return;
     const isOpen = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', !isOpen);
+    button.setAttribute('aria-expanded', String(!isOpen));
     menus.forEach(menu => menu.classList.toggle('hidden'));
   });
 </script>

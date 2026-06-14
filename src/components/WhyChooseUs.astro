@@ -1,27 +1,33 @@
 ---
+import Certificate from "phosphor-astro/Certificate.astro";
+import Clock from "phosphor-astro/Clock.astro";
+import CurrencyDollar from "phosphor-astro/CurrencyDollar.astro";
+import ShieldCheck from "phosphor-astro/ShieldCheck.astro";
+import Headset from "phosphor-astro/Headset.astro";
+
 const cards = [
   {
-    letter: "E",
+    icon: Certificate,
     heading: "Expertise & Experience",
     text: "Years of customs brokerage and logistics expertise across India",
   },
   {
-    letter: "T",
+    icon: Clock,
     heading: "Timely & Safe Delivery",
     text: "On-time delivery with rigorous safety standards for every shipment",
   },
   {
-    letter: "C",
+    icon: CurrencyDollar,
     heading: "Cost Effective Solutions",
     text: "Competitive pricing without compromising on service quality",
   },
   {
-    letter: "C",
+    icon: ShieldCheck,
     heading: "Customs Compliance Assurance",
     text: "Full compliance with customs regulations and trade laws",
   },
   {
-    letter: "S",
+    icon: Headset,
     heading: "24/7 Customer Support",
     text: "Round-the-clock support for your logistics needs",
   },
@@ -38,7 +44,7 @@ const cards = [
       {cards.map((card) => (
         <div class="bg-white rounded-sm p-6 text-center hover:shadow-md transition-shadow">
           <div class="w-12 h-12 bg-iron/10 rounded-sm flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-            <span class="text-iron text-xl font-bold" aria-hidden="true">{card.letter}</span>
+            <card.icon width={24} height={24} class="text-iron" />
           </div>
           <h3 class="text-lg font-display font-semibold text-coal mb-2">{card.heading}</h3>
           <p class="text-sm text-graphite leading-relaxed">{card.text}</p>

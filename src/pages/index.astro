@@ -14,7 +14,7 @@ import Phone from "phosphor-astro/Phone.astro";
 import Envelope from "phosphor-astro/Envelope.astro";
 import Clock from "phosphor-astro/Clock.astro";
 ---
-<Layout title="SHIVAAY LOGISTICS — Customs Broker & Logistics Facilitator">
+<Layout title="SHIVAAY LOGISTICS — Customs Broker & Logistics Facilitator" description="Shivaay Logistics — Trusted customs broker and logistics facilitator in Ludhiana, India. Air, sea, road, rail freight forwarding, customs clearance, warehousing, and import/export documentation.">
   <HeroSection />
   <StatsBar />
   <ServicesGrid />
@@ -35,21 +35,21 @@ import Clock from "phosphor-astro/Clock.astro";
         <h3 class="text-xl font-display font-bold text-coal mb-6">Contact Information</h3>
         <div class="space-y-4">
           <div class="flex items-start gap-3">
-            <MapPin size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <MapPin width={20} height={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
             <span class="text-sm text-graphite">{SITE.address}</span>
           </div>
           {SITE.phone.map((p) => (
             <div class="flex items-start gap-3">
-              <Phone size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+              <Phone width={20} height={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
               <a href={`tel:${p.replace(/[^+\d]/g, "")}`} class="text-sm text-graphite hover:text-iron transition-colors">{p}</a>
             </div>
           ))}
           <div class="flex items-start gap-3">
-            <Envelope size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <Envelope width={20} height={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
             <a href={`mailto:${SITE.email}`} class="text-sm text-graphite hover:text-iron transition-colors">{SITE.email}</a>
           </div>
           <div class="flex items-start gap-3">
-            <Clock size={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
+            <Clock width={20} height={20} class="mt-0.5 shrink-0 text-turmeric" aria-hidden="true" />
             <span class="text-sm text-graphite">{SITE.hours}</span>
           </div>
         </div>

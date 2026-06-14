@@ -13,13 +13,19 @@ export const SITE = {
   },
 };
 
+export const STATS = [
+  { value: "12+", label: "Services" },
+  { value: "500+", label: "Clients" },
+  { value: "Pan-India", label: "Coverage" },
+  { value: "50+", label: "Customs Experts" },
+];
+
 export const NAV = [
   { label: "Home", href: "/" },
   {
     label: "About Us",
     href: "/about",
     children: [
-      { label: "About Us", href: "/about" },
       { label: "Why Choose Us", href: "/about#why-choose-us" },
     ],
   },
@@ -28,6 +34,12 @@ export const NAV = [
     href: "/services",
     children: [
       { label: "All Services", href: "/services" },
+      { label: "Air Freight", href: "/services/air-freight" },
+      { label: "Sea Freight", href: "/services/sea-freight" },
+      { label: "Road Freight", href: "/services/road-freight" },
+      { label: "Rail Freight", href: "/services/rail-freight" },
+      { label: "Customs Clearance", href: "/services/customs-clearance" },
+      { label: "Warehousing", href: "/services/warehousing" },
     ],
   },
   { label: "Contact Us", href: "/contact" },

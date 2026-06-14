@@ -1,17 +1,21 @@
 ---
+import Eye from "phosphor-astro/Eye.astro";
+import Star from "phosphor-astro/Star.astro";
+import HandHeart from "phosphor-astro/HandHeart.astro";
+
 const cards = [
   {
-    icon: "T",
+    icon: Eye,
     title: "Mission",
     text: "To provide reliable, efficient, and compliant customs brokerage and logistics services that empower businesses in Ludhiana and beyond to trade with confidence.",
   },
   {
-    icon: "E",
+    icon: Star,
     title: "Vision",
     text: "To become India's most trusted logistics partner, known for integrity, innovation, and excellence in supply chain solutions.",
   },
   {
-    icon: "S",
+    icon: HandHeart,
     title: "Commitment",
     text: "We are committed to delivering exceptional service, ensuring cargo safety, maintaining regulatory compliance, and building lasting relationships with our clients.",
   },
@@ -27,7 +31,7 @@ const cards = [
       {cards.map((card) => (
         <div class="bg-white rounded-sm p-8 text-center">
           <div class="w-14 h-14 bg-iron/10 rounded-sm flex items-center justify-center mx-auto mb-5" aria-hidden="true">
-            <span class="text-iron font-bold text-xl" aria-hidden="true">{card.icon}</span>
+            <card.icon width={28} height={28} class="text-iron" />
           </div>
           <h3 class="text-xl font-display font-semibold text-coal mb-3">
             {card.title}

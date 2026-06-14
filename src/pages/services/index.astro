@@ -1,31 +1,62 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { SERVICES } from "../../data/services";
+import Airplane from "phosphor-astro/Airplane.astro";
+import Sailboat from "phosphor-astro/Sailboat.astro";
+import Truck from "phosphor-astro/Truck.astro";
+import Train from "phosphor-astro/Train.astro";
+import ClipboardText from "phosphor-astro/ClipboardText.astro";
+import HouseLine from "phosphor-astro/HouseLine.astro";
+import Crane from "phosphor-astro/Crane.astro";
+import Warehouse from "phosphor-astro/Warehouse.astro";
+import ShieldCheck from "phosphor-astro/ShieldCheck.astro";
+import Package from "phosphor-astro/Package.astro";
+import FileText from "phosphor-astro/FileText.astro";
+import Stack from "phosphor-astro/Stack.astro";
+import ArrowsLeftRight from "phosphor-astro/ArrowsLeftRight.astro";
+
+const iconMap = new Map<string, typeof Airplane>([
+  ["Airplane", Airplane],
+  ["Sailboat", Sailboat],
+  ["Truck", Truck],
+  ["Train", Train],
+  ["ClipboardText", ClipboardText],
+  ["HouseLine", HouseLine],
+  ["Crane", Crane],
+  ["Warehouse", Warehouse],
+  ["ShieldCheck", ShieldCheck],
+  ["Package", Package],
+  ["FileText", FileText],
+  ["Stack", Stack],
+  ["ArrowsLeftRight", ArrowsLeftRight],
+]);
 ---
-<Layout title="Our Services — SHIVAAY LOGISTICS">
+<Layout title="Our Services — SHIVAAY LOGISTICS" description="Explore our complete range of logistics services — customs clearance, freight forwarding (air, sea, road, rail), warehousing, packaging, and more.">
   <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
     <nav class="text-sm text-stone mb-6" aria-label="Breadcrumb">
       <a href="/" class="hover:text-iron transition-colors">Home</a>
       <span class="mx-2" aria-hidden="true">›</span>
-      <span class="text-coal">Our Services</span>
+      <span class="text-coal" aria-current="page">Our Services</span>
     </nav>
     <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mb-4">Our Services</h1>
     <p class="text-graphite mb-12 max-w-2xl">Comprehensive logistics and customs brokerage solutions tailored to your business needs.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {SERVICES.map((service) => (
+      {SERVICES.map((service) => {
+        const IconComponent = iconMap.get(service.icon);
+        return (
         <a
           href={`/services/${service.slug}`}
           class="group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
         >
           <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4" aria-hidden="true">
-            <span class="text-iron text-lg font-bold" aria-hidden="true">{service.name.charAt(0)}</span>
+            {IconComponent && <IconComponent width={20} height={20} class="text-iron" />}
           </div>
           <h2 class="text-lg font-display font-bold text-coal group-hover:text-iron transition-colors">{service.name}</h2>
           <p class="text-sm text-graphite mt-2">{service.shortDesc}</p>
           <span class="text-iron text-sm font-medium mt-3 inline-block">Learn more →</span>
         </a>
-      ))}
+      )})}
     </div>
   </section>
 </Layout>

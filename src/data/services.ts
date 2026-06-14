@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
     name: "Sea Freight Services",
     shortDesc: "Cost-effective sea freight for every cargo size",
     description: "FCL and LCL sea freight solutions across international shipping lanes.",
-    icon: "Ship",
+    icon: "Sailboat",
     featured: true,
   },
   {

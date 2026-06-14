@@ -1,24 +1,14 @@
 ---
-// Full-width horizontal stats band
+import { STATS } from "../data/site";
 ---
 
 <section class="bg-iron py-12 md:py-16">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-4 text-center md:text-left">
-    <div>
-      <div class="text-3xl md:text-4xl font-display font-bold text-white">12+</div>
-      <div class="text-white/80 text-sm mt-1">Services</div>
-    </div>
-    <div>
-      <div class="text-3xl md:text-4xl font-display font-bold text-white">500+</div>
-      <div class="text-white/80 text-sm mt-1">Clients Served</div>
-    </div>
-    <div>
-      <div class="text-3xl md:text-4xl font-display font-bold text-white">Pan-India</div>
-      <div class="text-white/80 text-sm mt-1">Coverage</div>
-    </div>
-    <div>
-      <div class="text-3xl md:text-4xl font-display font-bold text-white">50+</div>
-      <div class="text-white/80 text-sm mt-1">Customs Experts</div>
-    </div>
-  </div>
+  <dl class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto px-4">
+    {STATS.map((stat) => (
+      <div class="text-center md:text-left">
+        <dt class="text-3xl md:text-4xl font-display font-bold">{stat.value}</dt>
+        <dd class="text-sm font-medium mt-1 tracking-wider uppercase text-white/70">{stat.label}</dd>
+      </div>
+    ))}
+  </dl>
 </section>

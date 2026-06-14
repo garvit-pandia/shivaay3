@@ -7,12 +7,12 @@ import Phone from "phosphor-astro/Phone.astro";
 import Envelope from "phosphor-astro/Envelope.astro";
 import Clock from "phosphor-astro/Clock.astro";
 ---
-<Layout title="Contact Us — SHIVAAY LOGISTICS">
+<Layout title="Contact Us — SHIVAAY LOGISTICS" description="Contact Shivaay Logistics in Ludhiana — reach us by phone, email, or visit our office. We're ready to handle your customs and logistics needs across India.">
   <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
     <nav class="text-sm text-stone mb-6" aria-label="Breadcrumb">
       <a href="/" class="hover:text-iron transition-colors">Home</a>
       <span class="mx-2" aria-hidden="true">›</span>
-      <span class="text-coal">Contact Us</span>
+      <span class="text-coal" aria-current="page">Contact Us</span>
     </nav>
     <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mb-4">Contact Us</h1>
     <p class="text-graphite mb-12 max-w-2xl">Have a question or need a customized logistics solution? We're here to help.</p>
@@ -27,8 +27,8 @@ import Clock from "phosphor-astro/Clock.astro";
         <h2 class="text-xl font-display font-bold text-coal mb-6">Contact Information</h2>
         <div class="space-y-6">
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
-              <MapPin size={20} class="text-iron" aria-hidden="true" />
+            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center shrink-0">
+              <MapPin width={20} height={20} class="text-iron" aria-hidden="true" />
             </div>
             <div>
               <h3 class="font-medium text-coal text-sm">Office Address</h3>
@@ -36,19 +36,19 @@ import Clock from "phosphor-astro/Clock.astro";
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
-              <Phone size={20} class="text-iron" aria-hidden="true" />
+            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center shrink-0">
+              <Phone width={20} height={20} class="text-iron" aria-hidden="true" />
             </div>
             <div>
               <h3 class="font-medium text-coal text-sm">Phone</h3>
               {SITE.phone.map((p) => (
-                <a key={p} href={`tel:${p.replace(/[^+\d]/g, "")}`} class="block text-sm text-graphite hover:text-iron transition-colors mt-0.5">{p}</a>
+                <a href={`tel:${p.replace(/[^+\d]/g, "")}`} class="block text-sm text-graphite hover:text-iron transition-colors mt-0.5">{p}</a>
               ))}
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
-              <Envelope size={20} class="text-iron" aria-hidden="true" />
+            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center shrink-0">
+              <Envelope width={20} height={20} class="text-iron" aria-hidden="true" />
             </div>
             <div>
               <h3 class="font-medium text-coal text-sm">Email</h3>
@@ -56,8 +56,8 @@ import Clock from "phosphor-astro/Clock.astro";
             </div>
           </div>
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0">
-              <Clock size={20} class="text-iron" aria-hidden="true" />
+            <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center shrink-0">
+              <Clock width={20} height={20} class="text-iron" aria-hidden="true" />
             </div>
             <div>
               <h3 class="font-medium text-coal text-sm">Business Hours</h3>
@@ -66,9 +66,8 @@ import Clock from "phosphor-astro/Clock.astro";
           </div>
         </div>
 
-        <!-- Map placeholder -->
-        <div class="mt-8 bg-linen rounded-sm min-h-[200px] flex items-center justify-center text-stone text-sm" aria-hidden="true">
-          Map placeholder
+        <div class="mt-8 bg-linen rounded-sm min-h-[200px] overflow-hidden">
+          <iframe title="Office location map" src="https://www.openstreetmap.org/export/embed.html?bbox=75.82%2C30.88%2C75.92%2C30.94&amp;layer=mapnik&amp;marker=30.91%2C75.87" width="100%" height="250" class="border-0" loading="lazy" allowfullscreen></iframe>
         </div>
       </div>
     </div>

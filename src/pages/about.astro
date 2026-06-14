@@ -3,12 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import MissionCards from "../components/MissionCards.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
 ---
-<Layout title="About Us — SHIVAAY LOGISTICS">
+<Layout title="About Us — SHIVAAY LOGISTICS" description="Learn about Shivaay Logistics — founded by Mandeep Singh, serving 500+ clients across India with expert customs brokerage and logistics solutions from Ludhiana, Punjab.">
   <section class="py-16 md:py-24 max-w-7xl mx-auto px-4">
     <nav class="text-sm text-stone mb-6" aria-label="Breadcrumb">
       <a href="/" class="hover:text-iron transition-colors">Home</a>
       <span class="mx-2" aria-hidden="true">›</span>
-      <span class="text-coal">About Us</span>
+      <span class="text-coal" aria-current="page">About Us</span>
     </nav>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -20,9 +20,9 @@ import WhyChooseUs from "../components/WhyChooseUs.astro";
           <p>Today, Shivaay Logistics serves over 500 clients across India, offering end-to-end logistics solutions including freight forwarding (air, sea, road, rail), warehousing and distribution, project cargo handling, and comprehensive import/export documentation.</p>
           <p>Based in Ludhiana — the industrial heart of Punjab — we understand the unique challenges faced by manufacturers and traders in the region. Our deep local knowledge combined with global logistics expertise makes us the preferred partner for businesses looking to expand their reach.</p>
         </div>
-        <a href="/get-quote" class="inline-block mt-6 bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Download Company Profile</a>
+        <a href="/get-quote" class="inline-block mt-6 bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Get a Quote</a>
       </div>
-      <div class="bg-linen rounded-sm min-h-[250px] md:min-h-[400px] flex items-center justify-center text-stone" aria-hidden="true"></div>
+      <img src="/images/team.jpg" alt="Shivaay Logistics team collaborating" class="w-full rounded-sm min-h-[250px] md:min-h-[400px] object-cover" width="800" height="533" loading="lazy" />
     </div>
   </section>
 
