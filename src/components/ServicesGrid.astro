@@ -43,7 +43,7 @@ const iconMap = new Map<string, typeof Airplane>([
       return (
       <a
         href={`/services/${service.slug}`}
-        class="group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
+        class="service-card group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
       >
         <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4" aria-hidden="true">
           {IconComponent && <IconComponent width={20} height={20} class="text-iron" />}
@@ -61,7 +61,7 @@ const iconMap = new Map<string, typeof Airplane>([
       return (
       <a
         href={`/services/${service.slug}`}
-        class="group block bg-white border border-linen rounded-sm p-4 hover:border-iron transition-colors"
+        class="service-card group block bg-white border border-linen rounded-sm p-4 hover:border-iron transition-colors"
       >
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 bg-iron/10 rounded-sm flex items-center justify-center flex-shrink-0" aria-hidden="true">

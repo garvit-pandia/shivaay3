@@ -42,12 +42,12 @@ const iconMap = new Map<string, typeof Airplane>([
     <p class="text-graphite mb-12 max-w-2xl">Comprehensive logistics and customs brokerage solutions tailored to your business needs.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {SERVICES.map((service) => {
+      {SERVICES.map((service, i) => {
         const IconComponent = iconMap.get(service.icon);
         return (
         <a
           href={`/services/${service.slug}`}
-          class="group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors"
+          class={`service-card reveal reveal-delay-${(i % 3) + 1} group block bg-white border border-linen rounded-sm p-6 hover:border-iron transition-colors`}
         >
           <div class="w-10 h-10 bg-iron/10 rounded-sm flex items-center justify-center mb-4" aria-hidden="true">
             {IconComponent && <IconComponent width={20} height={20} class="text-iron" />}

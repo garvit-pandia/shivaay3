@@ -34,5 +34,23 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      const nav = document.querySelector('nav.sticky');
+      if (nav) {
+        window.addEventListener('scroll', () => {
+          nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+        }, { passive: true });
+      }
+    </script>
   </body>
 </html>

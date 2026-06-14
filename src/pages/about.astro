@@ -11,7 +11,7 @@ import WhyChooseUs from "../components/WhyChooseUs.astro";
       <span class="text-coal" aria-current="page">About Us</span>
     </nav>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+    <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
       <div>
         <span class="inline-block bg-iron/10 text-iron text-sm font-medium px-4 py-1 rounded-sm tracking-wider uppercase">Our Story</span>
         <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mt-4">About Shivaay Logistics</h1>
@@ -26,10 +26,10 @@ import WhyChooseUs from "../components/WhyChooseUs.astro";
     </div>
   </section>
 
-  <MissionCards />
-  <WhyChooseUs />
+  <div class="reveal reveal-delay-1"><MissionCards /></div>
+  <div class="reveal reveal-delay-2"><WhyChooseUs /></div>
 
-  <section class="bg-iron py-16 text-center">
+  <section class="reveal reveal-delay-3 bg-iron py-16 text-center">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Ready to work with us?</h2>
       <p class="text-white/80 mt-3 text-lg">Get in touch for a customized logistics solution.</p>
