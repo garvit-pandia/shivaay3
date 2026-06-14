@@ -62,6 +62,29 @@ const related = SERVICES.filter(s => s.slug !== service.slug).slice(0, 3);
         </div>
         <h1 class="text-3xl md:text-4xl font-display font-bold text-coal mb-4">{service.name}</h1>
         <p class="text-lg text-graphite leading-relaxed">{service.description}</p>
+
+        <div class="mt-8 md:mt-10">
+          <h2 class="text-xl font-display font-bold text-coal mb-4">Key Features</h2>
+          <ul class="space-y-3">
+            {service.details.map((d) => (
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-iron rounded-full mt-2 shrink-0" aria-hidden="true"></span>
+                <span class="text-graphite">{d}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="mt-8 md:mt-10">
+          <h2 class="text-xl font-display font-bold text-coal mb-4">How It Works</h2>
+          <ol class="space-y-4">
+            {service.process.map((p, i) => (
+              <li class="flex items-start gap-4">
+                <span class="w-8 h-8 bg-iron text-white rounded-sm flex items-center justify-center text-sm font-bold shrink-0">{i + 1}</span>
+                <span class="text-graphite pt-1">{p}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
         
         <div class="mt-8 flex gap-4">
           <a href="/get-quote" class="bg-iron text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-iron-dark transition-colors">Get a Quote</a>

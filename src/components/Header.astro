@@ -8,11 +8,11 @@ const topNavLinks = [
 ---
 
 <header>
-  <div class="bg-coal text-white text-sm py-1.5">
+  <div class="bg-coal text-white text-xs py-1.5">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <a href={`tel:${SITE.phone[0].replace(/[^+\d]/g, "")}`} class="hover:text-turmeric transition-colors">{SITE.phone[0]}</a>
-        <span class="text-graphite">|</span>
+        <span class="text-graphite hidden sm:inline">|</span>
         <a href={`tel:${SITE.phone[1].replace(/[^+\d]/g, "")}`} class="hover:text-turmeric transition-colors">{SITE.phone[1]}</a>
         <span class="text-graphite hidden sm:inline">|</span>
         <a href={`mailto:${SITE.email}`} class="hover:text-turmeric transition-colors hidden sm:inline">{SITE.email}</a>
@@ -26,12 +26,12 @@ const topNavLinks = [
   </div>
 
   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-linen" aria-label="Main navigation">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
       <a href="/" class="font-display font-bold text-lg tracking-wider text-coal whitespace-nowrap">
         {SITE.name}
       </a>
 
-      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button type="button" class="hamburger md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="block w-6 h-0.5 bg-coal"></span>
         <span class="block w-6 h-0.5 bg-coal"></span>
         <span class="block w-6 h-0.5 bg-coal"></span>
@@ -86,7 +86,7 @@ const topNavLinks = [
           <li>
             {item.children ? (
               <details class="group">
-                <summary class="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-coal cursor-pointer list-none">
+                <summary class="flex items-center justify-between px-3 py-3 text-sm font-medium text-coal cursor-pointer list-none">
                   {item.label}
                   <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -96,7 +96,7 @@ const topNavLinks = [
                   {item.children.map((child) => (
                     <a
                       href={child.href}
-                      class="block px-3 py-2 text-sm text-stone hover:text-iron transition-colors"
+                      class="block px-3 py-3 text-sm text-stone hover:text-iron transition-colors"
                     >
                       {child.label}
                     </a>
@@ -106,7 +106,7 @@ const topNavLinks = [
             ) : (
               <a
                 href={item.href}
-                class="block px-3 py-2.5 text-sm font-medium text-coal hover:text-iron transition-colors"
+                class="block px-3 py-3 text-sm font-medium text-coal hover:text-iron transition-colors"
               >
                 {item.label}
               </a>

@@ -11,10 +11,10 @@ import Clock from "phosphor-astro/Clock.astro";
 ---
 
 <footer class="bg-coal text-white">
-  <div class="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 md:gap-8">
     <div>
-      <h3 class="font-display font-bold text-lg tracking-wider mb-4">{SITE.name}</h3>
-      <p class="text-stone text-sm leading-relaxed mb-4">
+      <h3 class="font-display font-bold text-sm md:text-lg tracking-wider mb-4">{SITE.name}</h3>
+      <p class="text-stone text-sm leading-relaxed mb-4 text-center sm:text-left">
         Your trusted customs broker & logistics facilitator
       </p>
       {SITE.social.facebook !== "#" && (
@@ -36,7 +36,7 @@ import Clock from "phosphor-astro/Clock.astro";
       <h4 class="font-display font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
       <ul class="space-y-2.5">
         {NAV.map((item) => (
-          <li>
+          <li class="py-1">
             <a href={item.href} class="text-stone text-sm hover:text-turmeric transition-colors">
               {item.label}
             </a>
@@ -49,7 +49,7 @@ import Clock from "phosphor-astro/Clock.astro";
       <h4 class="font-display font-semibold text-sm uppercase tracking-wider mb-4">Our Services</h4>
       <ul class="space-y-2.5">
         {SERVICES.slice(0, 6).map((service) => (
-          <li>
+          <li class="py-1">
             <a href={`/services/${service.slug}`} class="text-stone text-sm hover:text-turmeric transition-colors">
               {service.name}
             </a>
